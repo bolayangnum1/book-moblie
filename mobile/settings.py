@@ -1,8 +1,8 @@
 import os
 from datetime import timedelta
 from pathlib import Path
-
 import dj_database_url
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,6 +14,8 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    #admintem
+    'admin_volt.apps.AdminVoltConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +48,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mobile.urls'
 
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.request',
+#             ],
+#         },
+#     },
+# ]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-en'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'Asia/Bishkek'
 
