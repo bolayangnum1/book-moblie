@@ -1,4 +1,4 @@
-#!/home/adanov/PycharmProjects/mobile/venv/bin/python
+#!/home/adanov/PycharmProjects/mobile_book/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
