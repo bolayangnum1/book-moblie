@@ -1,14 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from book.views import BookViewSet, auth
+from book.views import BookViewSet, auth, UserBooksRelationView
 from . import settings
 from .yasg import urlpatterns as doc_urls
 from rest_framework import routers
 
 
 router = routers.SimpleRouter()
-router.register('book', BookViewSet)
+router.register(r'book', BookViewSet)
+router.register(r'book_relation', UserBooksRelationView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
