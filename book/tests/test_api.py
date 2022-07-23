@@ -67,22 +67,21 @@ class BookApiTestCase(APITestCase):
     #     self.assertEqual(status.HTTP_200_OK, response.status_code)
     #     self.assertEqual(serializer_data, response.data)
 
-    # def test_create(self):
-    #     self.assertEqual(3, Book.objects.all().count())
-    #     url = reverse('book-list')
-    #     data = {
-    #         'name': 'test book 1',
-    #         'price': 25,
-    #         'author_name': 'author1',
-    #     }
-    #
-    #     json_data = json.dumps(data)
-    #     self.client.force_login(self.user)
-    #     response = self.client.post(url, data=json_data,
-    #                                 content_type='application/json')
-    #     self.assertEqual(status.HTTP_200_OK, response.status_code)
-    #     self.assertEqual(3, Book.objects.all().count())
-    #     self.assertEqual(self.user, Book.objects.last().owner)
+    def test_create(self):
+        url = reverse('book-list')
+        data = {
+            'name': 'test book 1',
+            'price': 25,
+            'author_name': 'author1',
+        }
+
+        json_data = json.dumps(data)
+        self.client.force_login(self.user)
+        response = self.client.post(url, data=json_data,
+                                    content_type='application/json')
+        self.assertEqual(status.HTTP_201_CREATED, response.status_code)
+        self.assertEqual(4, Book.objects.all().count())
+        self.assertEqual(self.user, Book.objects.last().owner)
 
     def test_update(self):
         url = reverse('book-detail', args=(self.book_1.id,))

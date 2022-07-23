@@ -28,7 +28,13 @@ INSTALL_APPS = [
     'drf_yasg',
     'django_filters',
     'social_django',
+    'debug_toolbar'
 ]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 INSTALLED_APPS = DJANGO_APPS + STARTAPPS + INSTALL_APPS
 
@@ -37,6 +43,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    'debug_toolbar_force.middleware.ForceDebugToolbarMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
